@@ -47,7 +47,7 @@
                 </div>
             </div>
             <div class="chat-list">
-                <div class="contact-info" v-for="contact, index in contacts">
+                <div class="contact-info" v-for="contact, index in contacts" @click="thisIsActive(index)">
                     <img :src="'img/avatar' + contact.avatar + '.jpg'" :alt="'foto profilo di ' + contact.name">
                     <div class="name">{{ contact.name }}</div>
                 </div>
