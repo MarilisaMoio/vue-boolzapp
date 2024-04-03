@@ -200,7 +200,7 @@ main{
     background-color: red;
     margin: 10px;
     padding: 8px 10px;
-    padding-bottom: 18px;
+    padding-bottom: 25px;
     border-radius: 15px;
     position: relative;
 }
@@ -219,6 +219,7 @@ main{
     position: absolute;
     bottom: 5px;
     right: 10px;
+    color: var(--dark-btn)
 }
 
 /*message bar*/
