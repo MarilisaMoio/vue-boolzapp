@@ -20,6 +20,8 @@ ul, ol {
     --your-msg: #D5F9BA;
     --light-btn: #B1B1B1;
     --dark-btn: #6B7376;
+    --upper-bar-h: 60px;
+    --lower-bar-h: 40px;
 }
 
 body{
@@ -54,14 +56,14 @@ main{
     background-color: white;
 }
 
-#chat{
+#chat-container{
     height: 100%;
     width: 65%;
     background-image: url(../img/mine.jpg);
 }
 
-.high-bar{
-    height: 60px;
+.upper-bar{
+    height: var(--upper-bar-h);
     padding: 10px 15px;
     background-color: var(--interface-n-hover);
     display: flex;
@@ -84,8 +86,47 @@ main{
 }
 
 .last-log{
-    font-size: small;
+    font-size: 0.8rem;
     color: var(--dark-btn);
+}
+
+.lower-bar{
+    height: var(--lower-bar-h);
+    background-color: var(--interface-n-hover);
+}
+
+.chat{
+    height: calc(100% - var(--upper-bar-h) - var(--lower-bar-h));
+    overflow-y: auto;
+    padding: 15px;
+}
+
+.message{
+    width: fit-content;
+    min-width: 150px;
+    max-width: 50%;
+    background-color: red;
+    margin: 10px;
+    padding: 8px 10px;
+    padding-bottom: 18px;
+    border-radius: 15px;
+    position: relative;
+}
+
+.sent{
+    background-color: var(--your-msg);
+    margin-left: auto;
+}
+
+.received{
+    background-color: white;
+}
+
+.timestamp{
+    font-size: 0.7rem;
+    position: absolute;
+    bottom: 5px;
+    right: 10px;
 }
 /* #endregion APP */
 

@@ -18,7 +18,7 @@
 <body>
     <main id="app">
         <div id="list">
-            <div class="high-bar">
+            <div class="upper-bar">
                 <div class="person-info">
                     <img src="img/avatar_io.jpg" alt="la mia foto profilo">
                     <div class="name">Marilisa</div>
@@ -30,8 +30,8 @@
                 </div>
             </div>
         </div>
-        <div id="chat">
-            <div class="high-bar">
+        <div id="chat-container">
+            <div class="upper-bar">
                 <div class="person-info">
                     <img :src="'img/avatar' + contacts[activeChat].avatar + '.jpg'" alt="la mia foto profilo">
                     <div class="name">
@@ -44,6 +44,17 @@
                     <i class="fas fa-paperclip"></i>
                     <i class="fas fa-ellipsis-vertical"></i>
                 </div>
+            </div>
+            <div class="chat">
+                <div class="message sent">ciao
+                    <div class="timestamp">nn:nn</div>
+                </div>
+                <div class="message received">Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam dicta ipsam nostrum consectetur quaerat, eos incidunt eveniet iure ipsum debitis? Odit dicta iste blanditiis placeat tenetur facere. Doloremque, mollitia quibusdam!
+                    <div class="timestamp">nn:nn</div>
+                </div>
+            </div>
+            <div class="lower-bar">
+
             </div>
         </div>
     </main>
