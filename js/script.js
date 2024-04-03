@@ -78,6 +78,7 @@ createApp({
                     status: 'received'
                 }],
             }],
+			activeChat: 0,
         };
     },
     methods: {

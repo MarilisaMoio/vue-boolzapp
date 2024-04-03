@@ -16,7 +16,37 @@
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 </head>
 <body>
-    
+    <main id="app">
+        <div id="list">
+            <div class="high-bar">
+                <div class="person-info">
+                    <img src="img/avatar_io.jpg" alt="la mia foto profilo">
+                    <div class="name">Marilisa</div>
+                </div>
+                <div class="btn-group">
+                    <i class="fas fa-circle-notch"></i>
+                    <i class="fas fa-message"></i>
+                    <i class="fas fa-ellipsis-vertical"></i>
+                </div>
+            </div>
+        </div>
+        <div id="chat">
+            <div class="high-bar">
+                <div class="person-info">
+                    <img :src="'img/avatar' + contacts[activeChat].avatar + '.jpg'" alt="la mia foto profilo">
+                    <div class="name">
+                        <div>{{ contacts[activeChat].name }}</div>
+                        <div class="last-log">Ultimo accesso ieri</div>
+                    </div>
+                </div>
+                <div class="btn-group">
+                    <i class="fas fa-magnifying-glass"></i>
+                    <i class="fas fa-paperclip"></i>
+                    <i class="fas fa-ellipsis-vertical"></i>
+                </div>
+            </div>
+        </div>
+    </main>
     <!--js-->
     <script type="text/javascript" src="js/script.js"></script>
 </body>
