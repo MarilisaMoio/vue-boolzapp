@@ -77,14 +77,14 @@
                 <div v-for="message, index in contacts[activeChat].messages" class="message" :class="message.status">
                     {{ message.message }}
                     <div class="timestamp">{{ message.date }}</div>
+                    <button class="msg-settings">
+                        <i class="fas fa-angle-down"></i>
+                        <div class="actual-settings">
+                            <div>Salva il messaggio</div>
+                            <div @mousedown="eliminateMsg(activeChat, index)" tabindex="0">Elimina il messaggio</div>
+                        </div>
+                    </button>
                 </div>
-
-                <!-- <div class="message sent">ciao
-                    <div class="timestamp">nn:nn</div>
-                </div>
-                <div class="message received">Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam dicta ipsam nostrum consectetur quaerat, eos incidunt eveniet iure ipsum debitis? Odit dicta iste blanditiis placeat tenetur facere. Doloremque, mollitia quibusdam!
-                    <div class="timestamp">nn:nn</div>
-                </div> -->
             </div>
             <div class="lower-bar">
                 <i class="far fa-face-smile"></i>

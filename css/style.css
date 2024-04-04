@@ -206,13 +206,55 @@ main{
 .message{
     width: fit-content;
     min-width: 150px;
-    max-width: 50%;
+    max-width: 65%;
     background-color: red;
     margin: 10px;
     padding: 8px 10px;
     padding-bottom: 25px;
     border-radius: 15px;
     position: relative;
+    display: flex;
+    align-items: flex-start;
+    &:hover > .msg-settings{
+        display: inline-block;
+    }
+}
+
+.msg-settings{
+    background-color: transparent;
+    display: none;
+    margin-left: auto;
+    position: relative;
+    color: var(--dark-btn);
+    &:focus{
+        display:inline-block
+    }
+    &:focus > .actual-settings{
+        display: block;
+    }
+}
+
+.actual-settings{
+    display: none;
+    position: absolute;
+    z-index: 999;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.6);
+    width: 150px;
+    background-color: white;
+    bottom: -10;
+    .sent &{
+        right: 0;
+    };
+    .received &{
+        left: 0;
+    }
+    & > *{
+        padding: 10px;
+        cursor: pointer;
+    }
+    & > *:hover{
+        background-color: var(--interface-n-hover);
+    }
 }
 
 .sent{
