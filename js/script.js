@@ -111,18 +111,18 @@ createApp({
 				this.contacts[activeChat].messages.push(newMessage);
 			}, 1000)
 		},
+		filterContacts(){
+            this.contacts.forEach((contact) => {
+                lowerName = contact.name.toLowerCase();
+				contact.visible = lowerName.includes(this.filterValue.toLowerCase());
+			})
+		},
         visibilityOn(){
             this.isVisible = true;
         },
         visibilityOff(){
             this.isVisible = false;
         },
-		filterContacts(){
-			this.contacts.forEach((contact) => {
-				lowerName = contact.name.toLowerCase();
-				contact.visible = lowerName.includes(this.filterValue.toLowerCase());
-			})
-		},
 		eliminateMsg(activeChat, index){
             this.visibilityOff()
             this.contacts[activeChat].messages.splice(index, 1);

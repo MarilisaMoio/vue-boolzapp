@@ -120,9 +120,12 @@ createApp({
 				contact.visible = lowerName.includes(this.filterValue.toLowerCase());
 			})
 		},
-		eliminateMsg(activeChat, index){
-			this.contacts[activeChat].messages.splice(index, 1);
-		},
+		visibilityOn(){
+            this.isVisible = true;
+        },
+        visibilityOff(){
+            this.isVisible = false;
+        },
         eliminateMsg(activeChat, index){
             this.visibilityOff()
             this.contacts[activeChat].messages.splice(index, 1);
