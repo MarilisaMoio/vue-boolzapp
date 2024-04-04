@@ -163,7 +163,7 @@ main{
 /*contact list*/
 .chat-list{
     background-color: white;
-    height: calc(100% - var(--searchbar-h) - var(--alert) - var(--upper-bar-h));
+    height: calc(100% - var(--searchbar-h) - var(--badge-h) - var(--upper-bar-h));
     overflow-y: auto;
 }
 
