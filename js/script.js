@@ -79,7 +79,8 @@ createApp({
                 }],
             }],
 			activeChat: 0,
-			writtenMessage: ""
+			writtenMessage: "",
+			dateTime: luxon.DateTime,
         };
     },
     methods: {
@@ -87,17 +88,24 @@ createApp({
 			this.activeChat = index;
 		},
 		sendNewMessage(activeChat){
+			const actualDateTime = this.dateTime.now();
 			const newMessage = {}
+			const newFormat = { ...this.dateTime.DATE_SHORT, ...this.dateTime.DATETIME_SHORT_WITH_SECONDS}
+
 			newMessage.message = this.writtenMessage;
-			newMessage.date = "12/02"
+			newMessage.date = actualDateTime.setLocale("fr").toLocaleString(newFormat);
 			newMessage.status = "sent";
+
 			this.contacts[activeChat].messages.push(newMessage);
 			this.writtenMessage = ""
 			setTimeout(() => {
+				const respondDateTime = this.dateTime.now();
 				const newMessage = {}
+				
 				newMessage.message = "ok";
-				newMessage.date = "12/02"
+				newMessage.date = respondDateTime.setLocale("fr").toLocaleString(newFormat);
 				newMessage.status = "received";
+
 				this.contacts[activeChat].messages.push(newMessage);
 			}, 1000)
 		}
