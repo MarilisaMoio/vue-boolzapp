@@ -38,6 +38,10 @@ body{
     align-items: center;
     justify-content: center;
 }
+
+i{
+    cursor: pointer;
+}
 /* #endregion GENERAL */
 
 /* #region APP */
@@ -67,7 +71,6 @@ main{
         }
         & i{
             color: var(--light-btn);
-            cursor: pointer;
         }
         & i + i{
             padding-left: 15px
@@ -168,6 +171,7 @@ main{
     display: flex;
     align-items: center;
     padding: 0 15px;
+    cursor: pointer;
     border-bottom: 1px solid var(--interface-n-hover);
     & img{
         height: 70%;
@@ -233,6 +237,7 @@ main{
         width: 75%;
         height: 50%;
         border-radius: 10px;
+        padding: 0 10px;
     }
     & i{
         color: var(--dark-btn);

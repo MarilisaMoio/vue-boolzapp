@@ -79,11 +79,20 @@ createApp({
                 }],
             }],
 			activeChat: 0,
+			writtenMessage: ""
         };
     },
     methods: {
 		thisIsActive(index){
 			this.activeChat = index;
+		},
+		sendNewMessage(activeChat){
+			const newMessage = {}
+			newMessage.message = this.writtenMessage;
+			newMessage.date = "12/02"
+			newMessage.status = "sent";
+			this.contacts[activeChat].messages.push(newMessage);
+			this.writtenMessage = ""
 		}
     }
 }).mount('#app');

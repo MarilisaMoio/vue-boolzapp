@@ -83,7 +83,7 @@
             </div>
             <div class="lower-bar">
                 <i class="far fa-face-smile"></i>
-                <input type="text" id="message-input">
+                <input type="text" id="message-input" v-model="writtenMessage" @keyup.enter="sendNewMessage(activeChat)">
                 <i class="fas fa-microphone"></i>
             </div>
         </div>
