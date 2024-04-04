@@ -93,6 +93,13 @@ createApp({
 			newMessage.status = "sent";
 			this.contacts[activeChat].messages.push(newMessage);
 			this.writtenMessage = ""
+			setTimeout(() => {
+				const newMessage = {}
+				newMessage.message = "ok";
+				newMessage.date = "12/02"
+				newMessage.status = "received";
+				this.contacts[activeChat].messages.push(newMessage);
+			}, 1000)
 		}
     }
 }).mount('#app');
