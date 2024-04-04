@@ -43,14 +43,16 @@
                     <div class="search-icon">
                         <i class="fas fa-magnifying-glass"></i>
                     </div>
-                    <input type="text" id="search-name">
+                    <input type="text" id="search-name" v-model="filterValue" @keyup="filterContacts">
                 </div>
             </div>
             <div class="chat-list">
-                <div class="contact-info" v-for="contact, index in contacts" @click="thisIsActive(index)">
-                    <img :src="'img/avatar' + contact.avatar + '.jpg'" :alt="'foto profilo di ' + contact.name">
-                    <div class="name">{{ contact.name }}</div>
-                </div>
+                <template v-for="contact, index in contacts">
+                    <div class="contact-info" v-if="contact.visible" @click="thisIsActive(index)">
+                        <img :src="'img/avatar' + contact.avatar + '.jpg'" :alt="'foto profilo di ' + contact.name">
+                        <div class="name">{{ contact.name }}</div>
+                    </div>
+                </template>
             </div>
         </div>
         <div id="chat-container">

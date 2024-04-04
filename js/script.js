@@ -81,6 +81,7 @@ createApp({
 			activeChat: 0,
 			writtenMessage: "",
 			dateTime: luxon.DateTime,
+			filterValue: ""
         };
     },
     methods: {
@@ -108,6 +109,12 @@ createApp({
 
 				this.contacts[activeChat].messages.push(newMessage);
 			}, 1000)
-		}
+		},
+		filterContacts(){
+			this.contacts.forEach((contact) => {
+				lowerName = contact.name.toLowerCase();
+				contact.visible = lowerName.includes(this.filterValue.toLowerCase());
+			})
+		},
     }
 }).mount('#app');
