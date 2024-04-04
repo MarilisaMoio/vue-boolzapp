@@ -184,6 +184,11 @@ main{
     }
 }
 
+.last-msg{
+    font-size: 0.8rem;
+    color: var(--dark-btn);
+}
+
 /*RIGHT SIDE*/
 #chat-container{
     height: 100%;
