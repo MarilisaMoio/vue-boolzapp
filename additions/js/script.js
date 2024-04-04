@@ -82,6 +82,7 @@ createApp({
 			writtenMessage: "",
 			dateTime: luxon.DateTime,
 			filterValue: "",
+            isVisible: false,
         };
     },
     methods: {
@@ -121,6 +122,10 @@ createApp({
 		},
 		eliminateMsg(activeChat, index){
 			this.contacts[activeChat].messages.splice(index, 1);
+		},
+        eliminateMsg(activeChat, index){
+            this.visibilityOff()
+            this.contacts[activeChat].messages.splice(index, 1);
 		}
     }
 }).mount('#app');

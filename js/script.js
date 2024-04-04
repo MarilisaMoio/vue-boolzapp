@@ -82,6 +82,7 @@ createApp({
 			writtenMessage: "",
 			dateTime: luxon.DateTime,
 			filterValue: "",
+            isVisible: false,
         };
     },
     methods: {
@@ -102,7 +103,7 @@ createApp({
 			setTimeout(() => {
 				const respondDateTime = this.dateTime.now();
 				const newMessage = {}
-				
+
 				newMessage.message = "ok";
 				newMessage.date = respondDateTime.setLocale("fr").toLocaleString(newFormat);
 				newMessage.status = "received";
@@ -110,6 +111,12 @@ createApp({
 				this.contacts[activeChat].messages.push(newMessage);
 			}, 1000)
 		},
+        visibilityOn(){
+            this.isVisible = true;
+        },
+        visibilityOff(){
+            this.isVisible = false;
+        },
 		filterContacts(){
 			this.contacts.forEach((contact) => {
 				lowerName = contact.name.toLowerCase();
@@ -117,7 +124,8 @@ createApp({
 			})
 		},
 		eliminateMsg(activeChat, index){
-			this.contacts[activeChat].messages.splice(index, 1);
+            this.visibilityOff()
+            this.contacts[activeChat].messages.splice(index, 1);
 		}
     }
 }).mount('#app');

@@ -226,16 +226,9 @@ main{
     margin-left: auto;
     position: relative;
     color: var(--dark-btn);
-    &:focus{
-        display:inline-block
-    }
-    &:focus > .actual-settings{
-        display: block;
-    }
 }
 
 .actual-settings{
-    display: none;
     position: absolute;
     z-index: 999;
     box-shadow: 0 0 3px rgba(0, 0, 0, 0.6);
