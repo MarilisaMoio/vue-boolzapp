@@ -65,7 +65,7 @@
                     <img :src="'img/avatar' + contacts[activeChat].avatar + '.jpg'" :alt="'foto profilo di ' + contacts[activeChat].name">
                     <div class="name">
                         <div>{{ contacts[activeChat].name }}</div>
-                        <div class="last-log">Ultimo accesso ieri</div>
+                        <div class="last-log">{{ isLogged ? "Online" : "Ultimo accesso oggi" }}</div>
                     </div>
                 </div>
                 <div class="btn-group">

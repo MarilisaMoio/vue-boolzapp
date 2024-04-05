@@ -83,6 +83,7 @@ createApp({
 			dateTime: luxon.DateTime,
 			filterValue: "",
             isVisible: false,
+            isLogged: false,
         };
     },
     methods: {
@@ -94,6 +95,7 @@ createApp({
 			const newMessage = {}
 			const newFormat = { ...this.dateTime.DATE_SHORT, ...this.dateTime.DATETIME_SHORT_WITH_SECONDS}
 
+            this.isLogged = true;
 			newMessage.message = this.writtenMessage;
 			newMessage.date = actualDateTime.setLocale("fr").toLocaleString(newFormat);
 			newMessage.status = "sent";
@@ -110,6 +112,9 @@ createApp({
 
 				this.contacts[activeChat].messages.push(newMessage);
 			}, 1000)
+            setTimeout(() => {
+                this.isLogged = false;
+            }, 2000)
 		},
 		filterContacts(){
             this.contacts.forEach((contact) => {
