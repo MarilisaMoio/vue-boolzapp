@@ -184,9 +184,18 @@ main{
     }
 }
 
+.info-text{
+    flex-grow: 1;
+    overflow: hidden;
+}
+
 .last-msg{
     font-size: 0.8rem;
     color: var(--dark-btn);
+    width: 100%;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
 /*RIGHT SIDE*/
