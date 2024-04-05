@@ -41,6 +41,9 @@ body{
 
 i{
     cursor: pointer;
+    .badge &{
+        cursor: default;
+    }
 }
 /* #endregion GENERAL */
 
