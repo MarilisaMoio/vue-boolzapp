@@ -126,6 +126,9 @@ createApp({
 		eliminateMsg(activeChat, index){
             this.visibilityOff()
             this.contacts[activeChat].messages.splice(index, 1);
-		}
+		},
+        clearFilter(){
+            this.filterValue = ""
+        }
     }
 }).mount('#app');

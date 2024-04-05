@@ -48,7 +48,7 @@
             </div>
             <div class="chat-list">
                 <template v-for="contact, index in contacts">
-                    <div class="contact-info" v-if="contact.visible" @click="thisIsActive(index)">
+                    <div class="contact-info" v-if="contact.visible" @click="thisIsActive(index); clearFilter(); filterContacts();">
                         <img :src="'img/avatar' + contact.avatar + '.jpg'" :alt="'foto profilo di ' + contact.name">
                         <div class="info-text">
                             <div class="name">{{ contact.name }}</div>
