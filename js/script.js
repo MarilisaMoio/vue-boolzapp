@@ -101,21 +101,30 @@ createApp({
 			newMessage.status = "sent";
 
 			this.contacts[activeChat].messages.push(newMessage);
+            setTimeout(this.scrollDown, 50);
 			this.writtenMessage = ""
 			setTimeout(() => {
 				const respondDateTime = this.dateTime.now();
 				const newMessage = {}
+                const randomResponse = ["Ok", "Dai, va bene", "Ora non posso parlare, ci sentiamo dopo", "Daje", "Sì, a dopo", "Forza Ascoli", "Ne parliamo poi"]
+				const randomNumber = Math.ceil(Math.random() * (randomResponse.length - 1));
 
-				newMessage.message = "ok";
+				newMessage.message = randomResponse[randomNumber];
+				
 				newMessage.date = respondDateTime.setLocale("fr").toLocaleString(newFormat);
 				newMessage.status = "received";
 
 				this.contacts[activeChat].messages.push(newMessage);
+                setTimeout(this.scrollDown, 50);
 			}, 1000)
             setTimeout(() => {
                 this.isLogged = false;
             }, 2000)
 		},
+        scrollDown(){
+            const chat = document.querySelector(".chat");
+            chat.scrollTop = chat.scrollHeight;
+        },
 		filterContacts(){
             this.contacts.forEach((contact) => {
                 lowerName = contact.name.toLowerCase();
