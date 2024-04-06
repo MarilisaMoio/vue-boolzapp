@@ -81,11 +81,6 @@ main{
     }
 }
 
-.last-log{
-    font-size: 0.8rem;
-    color: var(--dark-btn);
-}
-
 /*LEFT SIDE*/
 #list-container{
     height: 100%;
@@ -217,6 +212,11 @@ main{
     background-image: url(../img/mine.jpg);
 }
 
+.last-log{
+    font-size: 0.8rem;
+    color: var(--dark-btn);
+}
+
 /*chat body*/
 .chat{
     height: calc(100% - var(--upper-bar-h) - var(--lower-bar-h));
@@ -306,7 +306,6 @@ main{
         font-size: 1.3rem
     }
 }
-
 
 /* #endregion APP */
 
