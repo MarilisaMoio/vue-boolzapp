@@ -48,13 +48,14 @@
             </div>
             <div class="chat-list">
                 <template v-for="contact, index in contacts">
-                    <div class="contact-info" v-if="contact.visible" @click="thisIsActive(index); clearFilter(); filterContacts();">
+                    <div class="contact-info" v-if="contact.visible" @click="thisIsActive(index); clearFilter(); filterContacts(); everythingRead();">
                         <img :src="'img/avatar' + contact.avatar + '.jpg'" :alt="'foto profilo di ' + contact.name">
                         <div class="info-text">
                             <div class="name">{{ contact.name }}</div>
                             <div class="last-msg" v-if="contact.messages.length > 0">{{ contact.messages[contact.messages.length - 1].message }}</div>
-                            <div class="last-msg-date" v-if="contact.messages.length > 0">{{ contact.messages[contact.messages.length - 1].date }}</div>
                         </div>
+                        <div class="last-msg-date" v-if="contact.messages.length > 0">{{ contact.messages[contact.messages.length - 1].date }}</div>
+                        <div v-if="notRead(index) > 0" class="not-read">{{ notRead(index) }}</div>
                     </div>
                 </template>
             </div>
@@ -89,7 +90,7 @@
             </div>
             <div class="lower-bar">
                 <i class="far fa-face-smile"></i>
-                <input type="text" id="message-input" v-model="writtenMessage" @keyup.enter="sendNewMessage(activeChat)">
+                <input type="text" id="message-input" v-model="writtenMessage" @keyup.enter="sendNewMessage">
                 <i class="fas fa-microphone"></i>
             </div>
         </div>
