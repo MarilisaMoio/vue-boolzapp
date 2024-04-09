@@ -55,7 +55,7 @@
                             <div class="last-msg" v-if="contact.messages.length > 0">{{ contact.messages[contact.messages.length - 1].message }}</div>
                         </div>
                         <div class="last-msg-date" v-if="contact.messages.length > 0">{{ contact.messages[contact.messages.length - 1].date }}</div>
-                        <div v-if="notRead(index) > 0" class="not-read">{{ notRead(index) }}</div>
+                        <div class="not-read" v-if="counterUnread[index].length > 0">{{ counterUnread[index].length }}</div>
                     </div>
                 </template>
             </div>
