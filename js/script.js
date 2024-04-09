@@ -7,11 +7,12 @@ createApp({
                 name: 'Michele',
                 avatar: '_1',
                 visible: true,
+                logged: false,
                 messages: [{
                     date: '10/01/2020 15:30:55',
                     message: 'Hai portato a spasso il cane?',
                     status: 'sent',
-                    read: "true",
+                    read: true,
                 },
                 {
                     date: '10/01/2020 15:50:00',
@@ -30,6 +31,7 @@ createApp({
                 name: 'Fabio',
                 avatar: '_2',
                 visible: true,
+                logged: false,
                 messages: [{
                     date: '20/03/2020 16:30:00',
                     message: 'Ciao come stai?',
@@ -53,6 +55,7 @@ createApp({
                 name: 'Samuele',
                 avatar: '_3',
                 visible: true,
+                logged: false,
                 messages: [{
                     date: '28/03/2020 10:10:40',
                     message: 'La Marianna va in campagna',
@@ -76,6 +79,7 @@ createApp({
                 name: 'Luisa',
                 avatar: '_4',
                 visible: true,
+                logged: false,
                 messages: [{
                     date: '10/01/2020 15:30:55',
                     message: 'Lo sai che ha aperto una nuova pizzeria?',
@@ -94,7 +98,6 @@ createApp({
 			dateTime: luxon.DateTime,
 			filterValue: "",
             isVisible: false,
-            isLogged: false,
         };
     },
     methods: {
@@ -107,7 +110,7 @@ createApp({
 			const newFormat = { ...this.dateTime.DATE_SHORT, ...this.dateTime.DATETIME_SHORT_WITH_SECONDS}
             const thisSpecificChat = this.activeChat;
 
-            this.isLogged = true;
+            this.contacts[thisSpecificChat].logged = true;
 			newMessage.message = this.writtenMessage;
 			newMessage.date = actualDateTime.setLocale("fr").toLocaleString(newFormat);
 			newMessage.status = "sent";
@@ -130,7 +133,6 @@ createApp({
                 newMessage.read = this.activeChat === thisSpecificChat ? true : false;
 
 				this.contacts[thisSpecificChat].messages.push(newMessage);
-                console.log(newMessage)
                 setTimeout(this.scrollDown, 50);
                 setTimeout(() => {
                     const respondDateTime = this.dateTime.now();
@@ -146,12 +148,11 @@ createApp({
                     newMessage.read = this.activeChat === thisSpecificChat ? true : false;
     
                     this.contacts[thisSpecificChat].messages.push(newMessage);
-                    console.log(newMessage)
                     setTimeout(this.scrollDown, 50);
                 }, 1000)
-			}, 2000)
+			}, 1000)
             setTimeout(() => {
-                this.isLogged = false;
+                this.contacts[thisSpecificChat].logged = false;
             }, 3000)
 		},
         notRead(index){
